@@ -63,6 +63,8 @@
 		50D7C97017EBBEEC005D0B91 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50D7C96F17EBBEEC005D0B91 /* IOKit.framework */; };
 		521A8E7019F0C3D200D177D7 /* Default-667h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 521A8E6E19F0C3D200D177D7 /* Default-667h@2x.png */; };
 		521A8E7119F0C3D200D177D7 /* Default-736h@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 521A8E6F19F0C3D200D177D7 /* Default-736h@3x.png */; };
+		88087CEB1CE443740076C8F3 /* ScriptManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 88087CE91CE443740076C8F3 /* ScriptManager.cpp */; };
+		88087CEC1CE443740076C8F3 /* ScriptManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 88087CE91CE443740076C8F3 /* ScriptManager.cpp */; };
 		88C651941CE32EF0005B96F9 /* config.json in Resources */ = {isa = PBXBuildFile; fileRef = 88C650F91CE32EF0005B96F9 /* config.json */; };
 		88C651951CE32EF0005B96F9 /* bitExtend.lua in Resources */ = {isa = PBXBuildFile; fileRef = 88C650FD1CE32EF0005B96F9 /* bitExtend.lua */; };
 		88C651961CE32EF0005B96F9 /* Cocos2d.lua in Resources */ = {isa = PBXBuildFile; fileRef = 88C650FE1CE32EF0005B96F9 /* Cocos2d.lua */; };
@@ -460,6 +462,9 @@
 		50D7C96F17EBBEEC005D0B91 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
 		521A8E6E19F0C3D200D177D7 /* Default-667h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-667h@2x.png"; sourceTree = "<group>"; };
 		521A8E6F19F0C3D200D177D7 /* Default-736h@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-736h@3x.png"; sourceTree = "<group>"; };
+		88087CE91CE443740076C8F3 /* ScriptManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ScriptManager.cpp; sourceTree = "<group>"; };
+		88087CEA1CE443740076C8F3 /* ScriptManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScriptManager.h; sourceTree = "<group>"; };
+		88199B7B1CE4832900C90728 /* CommonSetting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonSetting.h; sourceTree = "<group>"; };
 		88C650F91CE32EF0005B96F9 /* config.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = config.json; sourceTree = "<group>"; };
 		88C650FD1CE32EF0005B96F9 /* bitExtend.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = bitExtend.lua; sourceTree = "<group>"; };
 		88C650FE1CE32EF0005B96F9 /* Cocos2d.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cocos2d.lua; sourceTree = "<group>"; };
@@ -960,6 +965,38 @@
 			name = Icons;
 			sourceTree = "<group>";
 		};
+		88087CD21CE439D40076C8F3 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				88087CD31CE439D40076C8F3 /* Script */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		88087CD31CE439D40076C8F3 /* Script */ = {
+			isa = PBXGroup;
+			children = (
+				88087CE91CE443740076C8F3 /* ScriptManager.cpp */,
+				88087CEA1CE443740076C8F3 /* ScriptManager.h */,
+			);
+			path = Script;
+			sourceTree = "<group>";
+		};
+		88087CD61CE439D40076C8F3 /* Store */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Store;
+			sourceTree = "<group>";
+		};
+		88199B791CE4831200C90728 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				88199B7B1CE4832900C90728 /* CommonSetting.h */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
 		88C650F71CE32EF0005B96F9 /* res */ = {
 			isa = PBXGroup;
 			children = (
@@ -1329,6 +1366,9 @@
 		88C651931CE32EF0005B96F9 /* sources */ = {
 			isa = PBXGroup;
 			children = (
+				88199B791CE4831200C90728 /* Constants */,
+				88087CD21CE439D40076C8F3 /* Common */,
+				88087CD61CE439D40076C8F3 /* Store */,
 			);
 			name = sources;
 			path = ../sources;
@@ -2225,6 +2265,7 @@
 				9F91077119F5614900AD5CAB /* strbuf.c in Sources */,
 				9F9106BF19F5614900AD5CAB /* CCBrightnessFilter.cpp in Sources */,
 				9F91077F19F5614900AD5CAB /* lua_extensions_more.c in Sources */,
+				88087CEC1CE443740076C8F3 /* ScriptManager.cpp in Sources */,
 				9F91074F19F5614900AD5CAB /* CCCryptoMac.mm in Sources */,
 				9F9106C919F5614900AD5CAB /* CCFilter.cpp in Sources */,
 				49C655EB1A36F6F800603AF5 /* nanovg.c in Sources */,
@@ -2270,6 +2311,7 @@
 				9F9106BE19F5614900AD5CAB /* CCBrightnessFilter.cpp in Sources */,
 				9F9106CE19F5614900AD5CAB /* CCHazeFilter.cpp in Sources */,
 				9F91074419F5614900AD5CAB /* SBJsonParser.m in Sources */,
+				88087CEB1CE443740076C8F3 /* ScriptManager.cpp in Sources */,
 				9F91074C19F5614900AD5CAB /* ReachabilityIOSMac.m in Sources */,
 				9F91077A19F5614900AD5CAB /* lsqlite3.c in Sources */,
 				9F91077E19F5614900AD5CAB /* lua_extensions_more.c in Sources */,
@@ -2438,6 +2480,7 @@
 					GLFW_EXPOSE_NATIVE_COCOA,
 					"CC_USE_SQLITE=1",
 					"CC_USE_CURL=1",
+					"COCOS_PROJECT_ROOT='\"'$(SRCROOT)/../'\"'",
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -2445,7 +2488,7 @@
 				HEADER_SEARCH_PATHS = "";
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/../../../../shared/cocos2d-x $(SRCROOT)/../../../../shared/cocos2d-x/cocos $(SRCROOT)/../../../../shared/cocos2d-x/cocos/base $(SRCROOT)/../../../../shared/cocos2d-x/cocos/physics $(SRCROOT)/../../../../shared/cocos2d-x/cocos/math/kazmath $(SRCROOT)/../../../../shared/cocos2d-x/cocos/2d $(SRCROOT)/../../../../shared/cocos2d-x/cocos/ui $(SRCROOT)/../../../../shared/cocos2d-x/cocos/network $(SRCROOT)/../../../../shared/cocos2d-x/cocos/audio/include $(SRCROOT)/../../../../shared/cocos2d-x/cocos/editor-support $(SRCROOT)/../../../../shared/cocos2d-x/extensions $(SRCROOT)/../../../../shared/cocos2d-x/external $(SRCROOT)/../../../../shared/cocos2d-x/external/chipmunk/include/chipmunk $(SRCROOT)/../../../../shared/cocos2d-x/external/lua/luajit/include $(SRCROOT)/../../../../shared/cocos2d-x/external/lua/tolua $(SRCROOT)/../../../../shared/cocos2d-x/cocos/scripting/lua-bindings/manual $(SRCROOT)/../../../../shared/cocos2d-x/cocos/scripting/lua-bindings/auto $(SRCROOT)/../Classes/quick-src $(SRCROOT)/../Classes/quick-src/extra";
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/../../../../shared/cocos2d-x $(SRCROOT)/../../../../shared/cocos2d-x/cocos $(SRCROOT)/../../../../shared/cocos2d-x/cocos/base $(SRCROOT)/../../../../shared/cocos2d-x/cocos/physics $(SRCROOT)/../../../../shared/cocos2d-x/cocos/math/kazmath $(SRCROOT)/../../../../shared/cocos2d-x/cocos/2d $(SRCROOT)/../../../../shared/cocos2d-x/cocos/ui $(SRCROOT)/../../../../shared/cocos2d-x/cocos/network $(SRCROOT)/../../../../shared/cocos2d-x/cocos/audio/include $(SRCROOT)/../../../../shared/cocos2d-x/cocos/editor-support $(SRCROOT)/../../../../shared/cocos2d-x/extensions $(SRCROOT)/../../../../shared/cocos2d-x/external $(SRCROOT)/../../../../shared/cocos2d-x/external/chipmunk/include/chipmunk $(SRCROOT)/../../../../shared/cocos2d-x/external/lua/luajit/include $(SRCROOT)/../../../../shared/cocos2d-x/external/lua/tolua $(SRCROOT)/../../../../shared/cocos2d-x/cocos/scripting/lua-bindings/manual $(SRCROOT)/../../../../shared/cocos2d-x/cocos/scripting/lua-bindings/auto $(SRCROOT)/../Classes/quick-src $(SRCROOT)/../Classes/quick-src/extra $(SRCROOT)/../sources";
 			};
 			name = Debug;
 		};
@@ -2462,13 +2505,14 @@
 					"CC_ENABLE_CHIPMUNK_INTEGRATION=1",
 					"CC_USE_SQLITE=1",
 					"CC_USE_CURL=1",
+					"COCOS_PROJECT_ROOT='\"'$(SRCROOT)/../'\"'",
 				);
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "";
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/../../../../shared/cocos2d-x $(SRCROOT)/../../../../shared/cocos2d-x/cocos $(SRCROOT)/../../../../shared/cocos2d-x/cocos/base $(SRCROOT)/../../../../shared/cocos2d-x/cocos/physics $(SRCROOT)/../../../../shared/cocos2d-x/cocos/math/kazmath $(SRCROOT)/../../../../shared/cocos2d-x/cocos/2d $(SRCROOT)/../../../../shared/cocos2d-x/cocos/ui $(SRCROOT)/../../../../shared/cocos2d-x/cocos/network $(SRCROOT)/../../../../shared/cocos2d-x/cocos/audio/include $(SRCROOT)/../../../../shared/cocos2d-x/cocos/editor-support $(SRCROOT)/../../../../shared/cocos2d-x/extensions $(SRCROOT)/../../../../shared/cocos2d-x/external $(SRCROOT)/../../../../shared/cocos2d-x/external/chipmunk/include/chipmunk $(SRCROOT)/../../../../shared/cocos2d-x/external/lua/luajit/include $(SRCROOT)/../../../../shared/cocos2d-x/external/lua/tolua $(SRCROOT)/../../../../shared/cocos2d-x/cocos/scripting/lua-bindings/manual $(SRCROOT)/../../../../shared/cocos2d-x/cocos/scripting/lua-bindings/auto $(SRCROOT)/../Classes/quick-src $(SRCROOT)/../Classes/quick-src/extra";
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/../../../../shared/cocos2d-x $(SRCROOT)/../../../../shared/cocos2d-x/cocos $(SRCROOT)/../../../../shared/cocos2d-x/cocos/base $(SRCROOT)/../../../../shared/cocos2d-x/cocos/physics $(SRCROOT)/../../../../shared/cocos2d-x/cocos/math/kazmath $(SRCROOT)/../../../../shared/cocos2d-x/cocos/2d $(SRCROOT)/../../../../shared/cocos2d-x/cocos/ui $(SRCROOT)/../../../../shared/cocos2d-x/cocos/network $(SRCROOT)/../../../../shared/cocos2d-x/cocos/audio/include $(SRCROOT)/../../../../shared/cocos2d-x/cocos/editor-support $(SRCROOT)/../../../../shared/cocos2d-x/extensions $(SRCROOT)/../../../../shared/cocos2d-x/external $(SRCROOT)/../../../../shared/cocos2d-x/external/chipmunk/include/chipmunk $(SRCROOT)/../../../../shared/cocos2d-x/external/lua/luajit/include $(SRCROOT)/../../../../shared/cocos2d-x/external/lua/tolua $(SRCROOT)/../../../../shared/cocos2d-x/cocos/scripting/lua-bindings/manual $(SRCROOT)/../../../../shared/cocos2d-x/cocos/scripting/lua-bindings/auto $(SRCROOT)/../Classes/quick-src $(SRCROOT)/../Classes/quick-src/extra $(SRCROOT)/../sources";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;

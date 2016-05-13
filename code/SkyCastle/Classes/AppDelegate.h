@@ -38,6 +38,11 @@ public:
     void setLaunchMode(int mode);
     
 private:
+    void setDesignResolutionPolicy();
+    void initDirector();
+    void setSearchPath();
+    
+private:
     int _launchMode;
 };
 

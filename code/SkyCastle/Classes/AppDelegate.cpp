@@ -7,54 +7,19 @@
 #include "Runtime.h"
 #endif
 #include "ConfigParser.h"
-#include "lua_module_register.h"
 
+#include "Common/Script/ScriptManager.h"
+#include "Constants/CommonSetting.h"
 
-// extra lua module
-#include "cocos2dx_extra.h"
-#include "lua_extensions/lua_extensions_more.h"
-#include "luabinding/lua_cocos2dx_extension_filter_auto.hpp"
-#include "luabinding/lua_cocos2dx_extension_nanovg_auto.hpp"
-#include "luabinding/lua_cocos2dx_extension_nanovg_manual.hpp"
-#include "luabinding/cocos2dx_extra_luabinding.h"
-#include "luabinding/HelperFunc_luabinding.h"
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
-#include "luabinding/cocos2dx_extra_ios_iap_luabinding.h"
-#endif
-#if ANYSDK_DEFINE > 0
-#include "anysdkbindings.h"
-#include "anysdk_manual_bindings.h"
-#endif
 
 using namespace CocosDenshion;
 
 USING_NS_CC;
 using namespace std;
 
-static void quick_module_register(lua_State *L)
-{
-    luaopen_lua_extensions_more(L);
-
-    lua_getglobal(L, "_G");
-    if (lua_istable(L, -1))//stack:...,_G,
-    {
-        register_all_quick_manual(L);
-        // extra
-        luaopen_cocos2dx_extra_luabinding(L);
-        register_all_cocos2dx_extension_filter(L);
-        register_all_cocos2dx_extension_nanovg(L);
-        register_all_cocos2dx_extension_nanovg_manual(L);
-        luaopen_HelperFunc_luabinding(L);
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
-        luaopen_cocos2dx_extra_ios_iap_luabinding(L);
-#endif
-    }
-    lua_pop(L, 1);
-}
-
 //
 AppDelegate::AppDelegate()
-:_launchMode(1)
+:_launchMode(0)
 {
 }
 
@@ -98,9 +63,23 @@ bool AppDelegate::applicationDidFinishLaunching()
 	}
 #endif
     
+    setSearchPath();
+    
+    initDirector();
+    
+    setDesignResolutionPolicy();
+    
+    ScriptManager::getInstance()->initialize();
+    
+    ScriptManager::getInstance()->executeScriptFile("Game/main.lua");
+    return true;
+}
+
+void AppDelegate::initDirector()
+{
     // initialize director
     auto director = Director::getInstance();
-    auto glview = director->getOpenGLView();    
+    auto glview = director->getOpenGLView();
     if(!glview) {
         Size viewSize = ConfigParser::getInstance()->getInitViewSize();
         string title = ConfigParser::getInstance()->getInitViewName();
@@ -114,44 +93,61 @@ bool AppDelegate::applicationDidFinishLaunching()
 #endif
         director->startAnimation();
     }
-   
-    auto engine = LuaEngine::getInstance();
-    ScriptEngineManager::getInstance()->setScriptEngine(engine);
-    lua_State* L = engine->getLuaStack()->getLuaState();
-    lua_module_register(L);
+}
 
-    // use Quick-Cocos2d-X
-    quick_module_register(L);
-
-    LuaStack* stack = engine->getLuaStack();
-#if ANYSDK_DEFINE > 0
-    lua_getglobal(stack->getLuaState(), "_G");
-    tolua_anysdk_open(stack->getLuaState());
-    tolua_anysdk_manual_open(stack->getLuaState());
-    lua_pop(stack->getLuaState(), 1);
-#endif
-
-    stack->setXXTEAKeyAndSign("2dxLua", strlen("2dxLua"), "XXTEA", strlen("XXTEA"));
-
-    //register custom function
-    //LuaStack* stack = engine->getLuaStack();
-    //register_custom_function(stack->getLuaState());
+void AppDelegate::setDesignResolutionPolicy()
+{
+    auto director = Director::getInstance();
+    auto glView = director->getOpenGLView();
+    float scaleX = glView->getFrameSize().width / DESIGN_RESOLUTION_WIDTH;
+    float scaleY = glView->getFrameSize().height / DESIGN_RESOLUTION_HEIGHT;
+    float designWidth = DESIGN_RESOLUTION_WIDTH;
+    float designHeight = DESIGN_RESOLUTION_HEIGHT;
     
-#if (COCOS2D_DEBUG > 0 && CC_CODE_IDE_DEBUG_SUPPORT > 0)
-    // NOTE:Please don't remove this call if you want to debug with Cocos Code IDE
-    if (_launchMode)
-    {
-        startRuntime();
+    if (scaleX < scaleY) {
+        designHeight = glView->getFrameSize().height / scaleX;
+    } else {
+        designWidth = glView->getFrameSize().width / scaleY;
     }
-    else
-    {
-        engine->executeScriptFile(ConfigParser::getInstance()->getEntryFile().c_str());
-    }
-#else
-    engine->executeScriptFile(ConfigParser::getInstance()->getEntryFile().c_str());
-#endif
+    glView->setDesignResolutionSize(designWidth, designHeight, DESIGN_RESOLUTION_POLICY);
+}
 
-    return true;
+void AppDelegate::setSearchPath()
+{
+    string writablePath = FileUtils::getInstance()->getWritablePath();
+    string downloadPath = writablePath + GameResourcesDownloadPath;
+    
+    // 下载目录，这里的优先级别，需要比下面的高
+    FileUtils::getInstance()->addSearchPath(writablePath.c_str());
+    
+    FileUtils::getInstance()->addSearchPath((downloadPath + "res/").c_str());
+    
+    FileUtils::getInstance()->addSearchPath((downloadPath + "scripts/").c_str());
+    
+#if CC_TARGET_PLATFORM == CC_PLATFORM_MAC
+    std::string path = COCOS_PROJECT_ROOT;
+    std::string writePath = path + "../../design/cache/";
+    if(!FileUtils::getInstance()->isDirectoryExist(writePath)) {
+        FileUtils::getInstance()->createDirectory(writePath);
+    }
+    FileUtils::getInstance()->setWritablePath(writePath.c_str());
+    
+    FileUtils::getInstance()->addSearchPath(path);
+    FileUtils::getInstance()->addSearchPath(path + "res");
+    FileUtils::getInstance()->addSearchPath(path + "scripts");
+    FileUtils::getInstance()->addSearchPath(path + "res/config");
+    
+    FileUtils::getInstance()->addSearchPath(path + "../../design/");
+    FileUtils::getInstance()->addSearchPath(path + "../../design/cache/");
+#elif CC_TARGET_PLATFORM == CC_PLATFROM_ANDROID
+    FileUtils::getInstance()->addSearchPath("res/");
+    FileUtils::getInstance()->addSearchPath("res/config/");
+    FileUtils::getInstance()->addSearchPath("scripts/");
+#else
+    FileUtils::getInstance()->addSearchPath("res/");
+    FileUtils::getInstance()->addSearchPath("res/config/");
+    FileUtils::getInstance()->addSearchPath("scripts/");
+#endif
 }
 
 // This function will be called when the app is inactive. When comes a phone call,it's be invoked too

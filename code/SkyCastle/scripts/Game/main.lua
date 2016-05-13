@@ -6,6 +6,12 @@ function __G__TRACKBACK__(errorMessage)
     print("----------------------------------------")
 end
 
-package.path = package.path .. ";src/"
+--package.path = package.path .. ";scripts/Game/"
 cc.FileUtils:getInstance():setPopupNotify(false)
-require("app.MyApp").new():run()
+
+local function main()
+	-- 运行slot
+	require("app.MyApp").new():run()
+end
+
+xpcall(main, __G__TRACKBACK__)

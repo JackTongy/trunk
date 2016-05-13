@@ -10,31 +10,43 @@
 	<string>skycastle</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>BC6D287B9F9B702538AA7FC1D245C2B3BB209F32</key>
-		<string>https://github.com/JackTongy/SkyCastle.git</string>
+		<key>04BB73090F1A7E548A36C2564B8DBD59121484AA</key>
+		<string>https://github.com/JackTongy/trunk.git</string>
+		<key>532AC8ACC853635AFC5C46994C6B4CABC767B7A6</key>
+		<string>https://github.com/JackTongy/shared.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>proj.ios_mac/skycastle.xcodeproj</string>
+	<string>code/SkyCastle/proj.ios_mac/skycastle.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>BC6D287B9F9B702538AA7FC1D245C2B3BB209F32</key>
-		<string>../../..</string>
+		<key>04BB73090F1A7E548A36C2564B8DBD59121484AA</key>
+		<string>../../../../..</string>
+		<key>532AC8ACC853635AFC5C46994C6B4CABC767B7A6</key>
+		<string>../../../../../../shared</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/JackTongy/SkyCastle.git</string>
+	<string>https://github.com/JackTongy/trunk.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>BC6D287B9F9B702538AA7FC1D245C2B3BB209F32</string>
+	<string>04BB73090F1A7E548A36C2564B8DBD59121484AA</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>BC6D287B9F9B702538AA7FC1D245C2B3BB209F32</string>
+			<string>532AC8ACC853635AFC5C46994C6B4CABC767B7A6</string>
 			<key>IDESourceControlWCCName</key>
-			<string>SkyCastle</string>
+			<string>shared</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>04BB73090F1A7E548A36C2564B8DBD59121484AA</string>
+			<key>IDESourceControlWCCName</key>
+			<string>trunk</string>
 		</dict>
 	</array>
 </dict>
