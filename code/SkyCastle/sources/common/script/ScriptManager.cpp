@@ -8,6 +8,7 @@
 
 #include "ScriptManager.h"
 #include "CCLuaEngine.h"
+#include "Constants/CommonSetting.h"
 
 #include "ConfigParser.h"
 #include "lua_module_register.h"
@@ -101,7 +102,7 @@ void ScriptManager::registerQuickModule()
     lua_pop(stack->getLuaState(), 1);
 #endif
     
-    stack->setXXTEAKeyAndSign("2dxLua", strlen("2dxLua"), "XXTEA", strlen("XXTEA"));
+    stack->setXXTEAKeyAndSign(SCRIPTES_ENCRYPT_KEY, strlen(SCRIPTES_ENCRYPT_KEY), SCRIPTES_ENCRYPT_SIGN, strlen(SCRIPTES_ENCRYPT_SIGN));
 }
 
 void ScriptManager::registerBindingModule()

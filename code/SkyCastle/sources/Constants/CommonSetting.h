@@ -28,4 +28,27 @@
 //download folder
 #define GameResourcesDownloadPath   "GameResources/"
 
+// Scripts 脚本加密配置
+#define SCRIPTES_ENCRYPT_KEY	"Isee-1990"
+#define SCRIPTES_ENCRYPT_SIGN	"Isee-sigh-1990-0829"
+
+//version,channel,tag
+#if CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID
+
+#define RESOURCE_GAME_TAG "tag1.0"
+#define APP_VERSION       "1.0.0"
+
+#undef  APP_CHANNEL
+#define APP_CHANNEL                         APP_CHANNEL_SLOT_JACKPOT
+
+#elif CC_TARGET_PLATFORM == CC_PLATFORM_MAC
+
+#define RESOURCE_GAME_TAG "tag1.0"
+#define APP_VERSION       "1.0.0"
+
+#undef  APP_CHANNEL
+#define APP_CHANNEL                         APP_CHANNEL_SLOT_JACKPOT
+
+#endif
+
 #endif /* defined(__skycastle__CommonSetting__) */

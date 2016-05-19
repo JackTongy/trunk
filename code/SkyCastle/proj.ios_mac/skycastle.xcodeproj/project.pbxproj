@@ -65,6 +65,16 @@
 		521A8E7119F0C3D200D177D7 /* Default-736h@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 521A8E6F19F0C3D200D177D7 /* Default-736h@3x.png */; };
 		88087CEB1CE443740076C8F3 /* ScriptManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 88087CE91CE443740076C8F3 /* ScriptManager.cpp */; };
 		88087CEC1CE443740076C8F3 /* ScriptManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 88087CE91CE443740076C8F3 /* ScriptManager.cpp */; };
+		88199B881CE9A9CC00C90728 /* ResourcePackManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 88199B861CE9A9CC00C90728 /* ResourcePackManager.cpp */; };
+		88199B891CE9A9CC00C90728 /* ResourcePackManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 88199B861CE9A9CC00C90728 /* ResourcePackManager.cpp */; };
+		88199B8C1CE9AAF200C90728 /* ResourcePack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 88199B8A1CE9AAF200C90728 /* ResourcePack.cpp */; };
+		88199B8D1CE9AAF200C90728 /* ResourcePack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 88199B8A1CE9AAF200C90728 /* ResourcePack.cpp */; };
+		88199B911CE9CFEE00C90728 /* StringUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 88199B8F1CE9CFEE00C90728 /* StringUtils.cpp */; };
+		88199B921CE9CFEE00C90728 /* StringUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 88199B8F1CE9CFEE00C90728 /* StringUtils.cpp */; };
+		88199B951CEB1D8200C90728 /* ResourceManifest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 88199B931CEB1D8200C90728 /* ResourceManifest.cpp */; };
+		88199B961CEB1D8200C90728 /* ResourceManifest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 88199B931CEB1D8200C90728 /* ResourceManifest.cpp */; };
+		88199B9B1CEC4EDB00C90728 /* ISGameDataManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 88199B991CEC4EDB00C90728 /* ISGameDataManager.cpp */; };
+		88199B9C1CEC4EDB00C90728 /* ISGameDataManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 88199B991CEC4EDB00C90728 /* ISGameDataManager.cpp */; };
 		88C651941CE32EF0005B96F9 /* config.json in Resources */ = {isa = PBXBuildFile; fileRef = 88C650F91CE32EF0005B96F9 /* config.json */; };
 		88C651951CE32EF0005B96F9 /* bitExtend.lua in Resources */ = {isa = PBXBuildFile; fileRef = 88C650FD1CE32EF0005B96F9 /* bitExtend.lua */; };
 		88C651961CE32EF0005B96F9 /* Cocos2d.lua in Resources */ = {isa = PBXBuildFile; fileRef = 88C650FE1CE32EF0005B96F9 /* Cocos2d.lua */; };
@@ -465,6 +475,16 @@
 		88087CE91CE443740076C8F3 /* ScriptManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ScriptManager.cpp; sourceTree = "<group>"; };
 		88087CEA1CE443740076C8F3 /* ScriptManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScriptManager.h; sourceTree = "<group>"; };
 		88199B7B1CE4832900C90728 /* CommonSetting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonSetting.h; sourceTree = "<group>"; };
+		88199B861CE9A9CC00C90728 /* ResourcePackManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ResourcePackManager.cpp; path = Resource/ResourcePackManager.cpp; sourceTree = "<group>"; };
+		88199B871CE9A9CC00C90728 /* ResourcePackManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ResourcePackManager.h; path = Resource/ResourcePackManager.h; sourceTree = "<group>"; };
+		88199B8A1CE9AAF200C90728 /* ResourcePack.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ResourcePack.cpp; path = Resource/ResourcePack.cpp; sourceTree = "<group>"; };
+		88199B8B1CE9AAF200C90728 /* ResourcePack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ResourcePack.h; path = Resource/ResourcePack.h; sourceTree = "<group>"; };
+		88199B8F1CE9CFEE00C90728 /* StringUtils.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = StringUtils.cpp; path = Utils/StringUtils.cpp; sourceTree = "<group>"; };
+		88199B901CE9CFEE00C90728 /* StringUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StringUtils.h; path = Utils/StringUtils.h; sourceTree = "<group>"; };
+		88199B931CEB1D8200C90728 /* ResourceManifest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ResourceManifest.cpp; path = Resource/ResourceManifest.cpp; sourceTree = "<group>"; };
+		88199B941CEB1D8200C90728 /* ResourceManifest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ResourceManifest.h; path = Resource/ResourceManifest.h; sourceTree = "<group>"; };
+		88199B991CEC4EDB00C90728 /* ISGameDataManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ISGameDataManager.cpp; path = GameData/ISGameDataManager.cpp; sourceTree = "<group>"; };
+		88199B9A1CEC4EDB00C90728 /* ISGameDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ISGameDataManager.h; path = GameData/ISGameDataManager.h; sourceTree = "<group>"; };
 		88C650F91CE32EF0005B96F9 /* config.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = config.json; sourceTree = "<group>"; };
 		88C650FD1CE32EF0005B96F9 /* bitExtend.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = bitExtend.lua; sourceTree = "<group>"; };
 		88C650FE1CE32EF0005B96F9 /* Cocos2d.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cocos2d.lua; sourceTree = "<group>"; };
@@ -997,6 +1017,44 @@
 			path = Constants;
 			sourceTree = "<group>";
 		};
+		88199B811CE9A92D00C90728 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				88199B861CE9A9CC00C90728 /* ResourcePackManager.cpp */,
+				88199B871CE9A9CC00C90728 /* ResourcePackManager.h */,
+				88199B8A1CE9AAF200C90728 /* ResourcePack.cpp */,
+				88199B8B1CE9AAF200C90728 /* ResourcePack.h */,
+				88199B931CEB1D8200C90728 /* ResourceManifest.cpp */,
+				88199B941CEB1D8200C90728 /* ResourceManifest.h */,
+			);
+			name = Resource;
+			sourceTree = "<group>";
+		};
+		88199B8E1CE9CF7700C90728 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				88199B8F1CE9CFEE00C90728 /* StringUtils.cpp */,
+				88199B901CE9CFEE00C90728 /* StringUtils.h */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
+		88199B971CEC4E4300C90728 /* GameData */ = {
+			isa = PBXGroup;
+			children = (
+				88199B991CEC4EDB00C90728 /* ISGameDataManager.cpp */,
+				88199B9A1CEC4EDB00C90728 /* ISGameDataManager.h */,
+			);
+			name = GameData;
+			sourceTree = "<group>";
+		};
+		88199B981CEC4E4C00C90728 /* GameConfig */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = GameConfig;
+			sourceTree = "<group>";
+		};
 		88C650F71CE32EF0005B96F9 /* res */ = {
 			isa = PBXGroup;
 			children = (
@@ -1366,6 +1424,10 @@
 		88C651931CE32EF0005B96F9 /* sources */ = {
 			isa = PBXGroup;
 			children = (
+				88199B981CEC4E4C00C90728 /* GameConfig */,
+				88199B971CEC4E4300C90728 /* GameData */,
+				88199B8E1CE9CF7700C90728 /* Utils */,
+				88199B811CE9A92D00C90728 /* Resource */,
 				88199B791CE4831200C90728 /* Constants */,
 				88087CD21CE439D40076C8F3 /* Common */,
 				88087CD61CE439D40076C8F3 /* Store */,
@@ -2211,6 +2273,7 @@
 				C00FD4991938512100C6382D /* Portrait_png.cpp in Sources */,
 				C06C3797191A1D1E00617BED /* ConfigParser.cpp in Sources */,
 				C07828F818B4D72E00BD2287 /* main.m in Sources */,
+				88199B9C1CEC4EDB00C90728 /* ISGameDataManager.cpp in Sources */,
 				C00FD49B1938512100C6382D /* Runtime.cpp in Sources */,
 				C0619CD81896894800872C26 /* Runtime_ios-mac.mm in Sources */,
 				3EB5152D19528284006966AA /* Protos.pb.cc in Sources */,
@@ -2218,6 +2281,7 @@
 				C00FD4931938512100C6382D /* Landscape_png.cpp in Sources */,
 				9F91079719F56A6600AD5CAB /* SimulatorConfig.cpp in Sources */,
 				9F91079F19F5704400AD5CAB /* ConsoleWindowController.m in Sources */,
+				88199B921CE9CFEE00C90728 /* StringUtils.cpp in Sources */,
 				9F91076F19F5614900AD5CAB /* lua_cjson.c in Sources */,
 				9F91070F19F5614900AD5CAB /* FilterShaders.cpp in Sources */,
 				9F91074519F5614900AD5CAB /* SBJsonParser.m in Sources */,
@@ -2234,6 +2298,7 @@
 				9F9106D919F5614900AD5CAB /* CCSepiaFilter.cpp in Sources */,
 				9F91074119F5614900AD5CAB /* SBJSON.m in Sources */,
 				9F91077319F5614900AD5CAB /* debugger.c in Sources */,
+				88199B961CEB1D8200C90728 /* ResourceManifest.cpp in Sources */,
 				9F91071F19F5614900AD5CAB /* cocos2dx_extra_luabinding.cpp in Sources */,
 				9F9106B919F5614900AD5CAB /* md5.c in Sources */,
 				49C655E91A36F6F800603AF5 /* NVGNode.cpp in Sources */,
@@ -2251,6 +2316,7 @@
 				49C655E71A36F6F800603AF5 /* NVGDrawNode.cpp in Sources */,
 				9F91072319F5614900AD5CAB /* HelperFunc_luabinding.cpp in Sources */,
 				9F91077D19F5614900AD5CAB /* sqlite3.c in Sources */,
+				88199B8D1CE9AAF200C90728 /* ResourcePack.cpp in Sources */,
 				9F91075119F5614900AD5CAB /* CCNative.mm in Sources */,
 				9F9106B519F5614900AD5CAB /* libbase64.c in Sources */,
 				9F91075319F5614900AD5CAB /* CCNativeMac.mm in Sources */,
@@ -2264,6 +2330,7 @@
 				9F9106D319F5614900AD5CAB /* CCMaskFilter.cpp in Sources */,
 				9F91077119F5614900AD5CAB /* strbuf.c in Sources */,
 				9F9106BF19F5614900AD5CAB /* CCBrightnessFilter.cpp in Sources */,
+				88199B891CE9A9CC00C90728 /* ResourcePackManager.cpp in Sources */,
 				9F91077F19F5614900AD5CAB /* lua_extensions_more.c in Sources */,
 				88087CEC1CE443740076C8F3 /* ScriptManager.cpp in Sources */,
 				9F91074F19F5614900AD5CAB /* CCCryptoMac.mm in Sources */,
@@ -2283,6 +2350,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9F91077219F5614900AD5CAB /* debugger.c in Sources */,
+				88199B9B1CEC4EDB00C90728 /* ISGameDataManager.cpp in Sources */,
 				49C655F21A36F71600603AF5 /* lua_cocos2dx_extension_nanovg_manual.cpp in Sources */,
 				49C655EA1A36F6F800603AF5 /* nanovg.c in Sources */,
 				9F91074819F5614900AD5CAB /* OpenUDIDIOS.m in Sources */,
@@ -2318,6 +2386,7 @@
 				9F91073419F5614900AD5CAB /* CCNative.mm in Sources */,
 				9F91077819F5614900AD5CAB /* lpack.c in Sources */,
 				9F91079419F56A6600AD5CAB /* ProjectConfig.cpp in Sources */,
+				88199B951CEB1D8200C90728 /* ResourceManifest.cpp in Sources */,
 				9F9106C019F5614900AD5CAB /* CCContrastFilter.cpp in Sources */,
 				9F9106D419F5614900AD5CAB /* CCRGBFilter.cpp in Sources */,
 				9F91077019F5614900AD5CAB /* strbuf.c in Sources */,
@@ -2342,8 +2411,10 @@
 				9F9106C619F5614900AD5CAB /* CCExposureFilter.cpp in Sources */,
 				9F9106DA19F5614900AD5CAB /* CCSharpenFilter.cpp in Sources */,
 				9F9106CA19F5614900AD5CAB /* CCGammaFilter.cpp in Sources */,
+				88199B911CE9CFEE00C90728 /* StringUtils.cpp in Sources */,
 				9F91071A19F5614900AD5CAB /* cocos2dx_extra_ios_iap_luabinding.cpp in Sources */,
 				9F91073A19F5614900AD5CAB /* CCStoreIOS.mm in Sources */,
+				88199B881CE9A9CC00C90728 /* ResourcePackManager.cpp in Sources */,
 				9F9106C819F5614900AD5CAB /* CCFilter.cpp in Sources */,
 				15AA9648199B6D4600725633 /* lua_debugger.c in Sources */,
 				C00FD4981938512100C6382D /* Portrait_png.cpp in Sources */,
@@ -2356,6 +2427,7 @@
 				3EB5152C19528284006966AA /* Protos.pb.cc in Sources */,
 				C00FD4941938512100C6382D /* PlayDisable_png.cpp in Sources */,
 				C00FD49C1938512100C6382D /* Shine_png.cpp in Sources */,
+				88199B8C1CE9AAF200C90728 /* ResourcePack.cpp in Sources */,
 				AB6CB6F21A1F275E009C2562 /* ConnectWaitLayer.cpp in Sources */,
 				5023812417EBBCAC00990C9B /* main.m in Sources */,
 				C033B51C191B337200D06937 /* VisibleRect.cpp in Sources */,

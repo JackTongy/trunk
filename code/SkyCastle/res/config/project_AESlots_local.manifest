@@ -1,0 +1,18 @@
+{ 
+	"assets": {
+        "res/Common/BrokeWidget.csb": {
+            "md5": "83f77d26ed3573ec29baf65ac992239b"
+        }, 
+        "res/Common/ColorProgress/progress_frame.png": {
+            "md5": "3999c941e14fb78d9cf0c119a855ab32"
+        }, 
+        "res/Common/ColorProgress/progressbar.png": {
+            "md5": "02affb14234be933870e38294ecfe2c6"
+        } 
+     },
+    "engineVersion": "Cocos2d-lua v3.3 Final", 
+    "packageUrl": "GameResource/SlotsTheme/android/tag3.0/Slot_Here/", 
+    "remoteManifestUrl": "GameResource/SlotsTheme/android/tag3.0/Slot_Here/project_AESlots.manifest", 
+    "remoteVersionUrl": "", 
+    "version": "3.0.0"
+}

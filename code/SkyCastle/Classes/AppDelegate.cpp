@@ -10,6 +10,7 @@
 
 #include "Common/Script/ScriptManager.h"
 #include "Constants/CommonSetting.h"
+#include "Resource/ResourcePackManager.h"
 
 
 using namespace CocosDenshion;
@@ -71,6 +72,12 @@ bool AppDelegate::applicationDidFinishLaunching()
     
     ScriptManager::getInstance()->initialize();
     
+    ResourcePackManager::getInstance()->initialize();
+    
+    ResourcePack* pack = ResourcePack::create("AESlots");
+    ResourcePackManager::getInstance()->pushResourcePack(pack);
+    ResourcePackManager::getInstance()->start();
+    
     ScriptManager::getInstance()->executeScriptFile("Game/main.lua");
     return true;
 }
@@ -131,6 +138,15 @@ void AppDelegate::setSearchPath()
         FileUtils::getInstance()->createDirectory(writePath);
     }
     FileUtils::getInstance()->setWritablePath(writePath.c_str());
+    
+    string downloadPathMac = writePath + GameResourcesDownloadPath;
+    
+    // 下载目录，这里的优先级别，需要比下面的高
+    FileUtils::getInstance()->addSearchPath((downloadPathMac).c_str());
+    
+    FileUtils::getInstance()->addSearchPath((downloadPathMac + "res/").c_str());
+    
+    FileUtils::getInstance()->addSearchPath((downloadPathMac + "scripts/").c_str());
     
     FileUtils::getInstance()->addSearchPath(path);
     FileUtils::getInstance()->addSearchPath(path + "res");
