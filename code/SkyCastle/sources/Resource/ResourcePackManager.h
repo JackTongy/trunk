@@ -32,13 +32,19 @@ public:
     
     void stopDownload();
     
+    void removeResourcePack(std::string name);
+    
+    void insertResourcePack(const std::string& name);
+    
+    void pushResourcePack(const std::string& name);
+    
+private:
+    ResourcePack* createResourcePack(const std::string& name);
+    
     void insertResourcePack(ResourcePack* pack);
     
     void pushResourcePack(ResourcePack* pack);
     
-    void removeResourcePack(std::string name);
-    
-private:
     bool addResourcePack(ResourcePack* pack);
     
     void startDownload();

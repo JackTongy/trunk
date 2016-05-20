@@ -8,6 +8,9 @@
 #endif
 #include "ConfigParser.h"
 
+#include "GameData/ISGameDataManager.h"
+#include "GameConfig/ISGameConfigManager.h"
+
 #include "Common/Script/ScriptManager.h"
 #include "Constants/CommonSetting.h"
 #include "Resource/ResourcePackManager.h"
@@ -70,13 +73,13 @@ bool AppDelegate::applicationDidFinishLaunching()
     
     setDesignResolutionPolicy();
     
+    ISGameDataManager::getInstance()->setServerType(ISGameDataManager::ServerType::Testing);
+    
+    ISGameConfigManager::getInstance()->initialize();
+    
     ScriptManager::getInstance()->initialize();
     
     ResourcePackManager::getInstance()->initialize();
-    
-    ResourcePack* pack = ResourcePack::create("AESlots");
-    ResourcePackManager::getInstance()->pushResourcePack(pack);
-    ResourcePackManager::getInstance()->start();
     
     ScriptManager::getInstance()->executeScriptFile("Game/main.lua");
     return true;

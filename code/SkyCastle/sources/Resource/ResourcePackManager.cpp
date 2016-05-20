@@ -8,6 +8,8 @@
 
 #include "ResourcePackManager.h"
 #include "Constants/CommonSetting.h"
+#include "GameData/ResourcePackData/ResourcePackData.h"
+#include "GameData/ISGameDataManager.h"
 
 #include <string>
 
@@ -91,8 +93,9 @@ void ResourcePackManager::startDownload()
     _downloading = _resourcePacks.at(0);
     _downloading->retain();
     _resourcePacks.eraseObject(_downloading);
+    _downloading->modifyManifestFile();
     
-    _assetsManager = AssetsManagerEx::create(_downloading->getProjectManifest(), _downloading->getStoragePath());
+    _assetsManager = AssetsManagerEx::create(_downloading->getManifest(), _downloading->getStoragePath());
     _assetsManager->retain();
     
     _assetsManagerExListener = EventListenerAssetsManagerEx::create(_assetsManager, CC_CALLBACK_1(ResourcePackManager::receiveAssetsManagerExUpdateEvent, this));
@@ -116,12 +119,43 @@ void ResourcePackManager::stopDownload()
 
 }
 
+ResourcePack* ResourcePackManager::createResourcePack(const std::string &name)
+{
+    ResourcePack* pack = nullptr;
+    auto packDataList = ISGameDataManager::getInstance()->getResourcePackDataList();
+    for(auto it : packDataList)
+    {
+        if (it->getName() == name)
+        {
+            pack = ResourcePack::create(it);
+            pack->retain();
+            break;
+        }
+    }
+    
+    return pack;
+}
+
+void ResourcePackManager::insertResourcePack(const std::string &name)
+{
+    auto pack = createResourcePack(name);
+    
+    insertResourcePack(pack);
+}
+
 void ResourcePackManager::insertResourcePack(ResourcePack *pack)
 {
     if(addResourcePack(pack))
     {
         _resourcePacks.insert(0, pack);
     }
+}
+
+void ResourcePackManager::pushResourcePack(const std::string &name)
+{
+    auto pack = createResourcePack(name);
+    
+    pushResourcePack(pack);
 }
 
 void ResourcePackManager::pushResourcePack(ResourcePack *pack)

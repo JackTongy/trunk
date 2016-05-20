@@ -1,0 +1,6 @@
+{
+    "ServerUrl": "https://swordfish.luckygame.org/Social", 
+    "ServerDebugUrl": "http://10.122.81.207:80/Social", 
+    "ResourcePackUrl": "https://scresource.luckygame.org/", 
+    "ResourcePackDebugUrl": "http://staging.ae-mobile.com:91/"
+}

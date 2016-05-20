@@ -10,10 +10,15 @@
 #define __skycastle__ResourcePack__
 
 #include "cocos2d.h"
+#include "cocos-ext.h"
+#include "json/document.h"
+
 #include <string>
 
 class ResourcePack;
-class ResourceManifest;
+class ResourcePackData;
+class ResourcePackManager;
+
 class ResourcePackProtocal
 {
 public:
@@ -30,16 +35,16 @@ public:
 class ResourcePack : public cocos2d::Ref
 {
 public:
-    friend class ResourceManifest;
+    friend class ResourcePackManager;
 public:
-    static ResourcePack* create(std::string name);
+    static ResourcePack* create(const ResourcePackData* packData);
     
 protected:
     ResourcePack();
     virtual ~ResourcePack();
 
-public:
-    virtual bool init(std::string name);
+protected:
+    virtual bool init(const ResourcePackData* packData);
     
 public:
     //name
@@ -47,6 +52,9 @@ public:
     
     //manifest
     CC_SYNTHESIZE(std::string, _manifest, Manifest);
+    
+    //remoteManifestUrl
+    CC_SYNTHESIZE(std::string, _remoteManifestUrl, RemoteManifestUrl);
     
     //version
     CC_SYNTHESIZE(std::string, _version, Version);
@@ -60,29 +68,37 @@ public:
     //Delegate
     CC_SYNTHESIZE(ResourcePackProtocal*, _delegate, Delegate);
     
-    //modify manifest
-    CC_SYNTHESIZE_READONLY(ResourceManifest*, _resourceManifest, ResourceManifest);
-    
-    //project manifest
-    CC_SYNTHESIZE_READONLY(std::string, _projectManifest, ProjectManifest);
-    
-public:
+protected:
     virtual void onSuccess();
     
     virtual void onError(const char* errMsg);
     
     virtual void onProgress(int percent);
+    
 protected:
-    bool isManifestExist();
+    void modifyManifestFile();
+    
+private:
+    void parse(const std::string& manifestUrl);
+    
+    void loadJson(const std::string& manifestUrl);
+    
+    void modifyManifest(rapidjson::Document & json);
+    
+    void saveManifest(const std::string &filepath);
+    
+    void createDirectory();
+    
+    void initalize();
     
     void createManifestFile();
-    
-    void modifyManifestFile();
     
     std::string getPlatformString();
     
 private:
-    std::string  _localManifest;
+    const ResourcePackData* _packData;
+    
+    rapidjson::Document _json;
 };
 
 #endif /* defined(__skycastle__ResourcePack__) */

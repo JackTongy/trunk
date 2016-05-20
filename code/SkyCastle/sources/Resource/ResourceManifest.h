@@ -17,7 +17,7 @@
 
 #include <string>
 
-class ResourceManifest : public cocos2d::extension::Manifest
+class ResourceManifest : public cocos2d::Ref
 {
 public:
     friend class ResourcePack;
@@ -32,8 +32,6 @@ protected:
 protected:
     void setLocalManifestUrl(const std::string& manifestUrl);
     
-    void setRemoteDomain(const std::string& domainName);
-    
     void setPackageUrl(const std::string& packageUrl);
     
     void prepareManifest();
@@ -41,8 +39,6 @@ protected:
     void setSavePath(const std::string &filepath, const std::string& fileName);
     
     void endManifest();
-    
-    void loadManifest(const rapidjson::Document &json);
     
 private:
     void parseJsonDoc(const std::string& manifestUrl);

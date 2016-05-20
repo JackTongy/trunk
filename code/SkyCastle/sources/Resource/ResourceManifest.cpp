@@ -70,11 +70,6 @@ void ResourceManifest::setLocalManifestUrl(const std::string& manifestUrl)
     _localManifestUrl = manifestUrl;
 }
 
-void ResourceManifest::setRemoteDomain(const std::string& domainName)
-{
-    _domainName = domainName;
-}
-
 void ResourceManifest::setPackageUrl(const std::string &packageUrl)
 {
     _packageUrl = packageUrl;
@@ -93,6 +88,12 @@ void ResourceManifest::prepareManifest()
         parseJsonDoc(_localManifestUrl);
         modifyManifest(_jsonDoc);
         saveManifest(_savePath + _localManifestUrl);
+    }
+    else
+    {
+        //not exist, then create it
+
+        
     }
 }
 
@@ -137,8 +138,6 @@ void ResourceManifest::modifyManifest(rapidjson::Document &json)
             json[KEY_MANIFEST_PACKAGE_URL].SetString(packageUrl.c_str(), json.GetAllocator());
         }
     }
-    
-    loadManifest(json);
 }
 
 void ResourceManifest::revertManifest(rapidjson::Document &json)
@@ -200,7 +199,6 @@ void ResourceManifest::loadJsonDoc(const std::string& url)
 
 void ResourceManifest::saveManifest(const std::string &filepath)
 {
-    CCLOG("saveManifest path = %s", filepath.c_str());
     rapidjson::StringBuffer buffer;
     rapidjson::PrettyWriter<rapidjson::StringBuffer> writer(buffer);
     _jsonDoc.Accept(writer);
@@ -209,19 +207,5 @@ void ResourceManifest::saveManifest(const std::string &filepath)
     if(!output.bad())
     {
         output << buffer.GetString() << std::endl;
-    }
-}
-
-void ResourceManifest::loadManifest(const rapidjson::Document &json)
-{
-    Manifest::loadManifest(json);
-    if ( json.HasMember(KEY_MANIFEST_PACKAGE_URL) && json[KEY_MANIFEST_PACKAGE_URL].IsString() )
-    {
-        _packageUrl = json[KEY_MANIFEST_PACKAGE_URL].GetString();
-        // Append automatically "/"
-        if (_packageUrl.size() > 0 && _packageUrl[_packageUrl.size() - 1] != '/')
-        {
-            _packageUrl.append("/");
-        }
     }
 }

@@ -13,18 +13,36 @@
 
 #include <string>
 
+class ResourcePackData;
 class ISGameDataManager
 {
 public:
+    enum class ServerType {
+        None,
+        Development, //开发服务器
+        Testing, //测试服务器
+        Production //产品服务器
+    };
+    
+public:
     static ISGameDataManager* getInstance();
-    static void end();
     
 private:
     ISGameDataManager();
     ~ISGameDataManager();
     
 public:
-    std::string getDownloadUrl();
+    void clearData();
+    
+    void addResourcePackData(ResourcePackData* packData);
+    
+    const cocos2d::Vector<ResourcePackData*> getResourcePackDataList() const;
+    
+public:
+    CC_SYNTHESIZE(ServerType, _serverType, ServerType);
+    
+private:
+    cocos2d::Vector<ResourcePackData*>      _resourcePackDataList;
 };
 
 #endif /* defined(__skycastle__ISGameDataManager__) */
